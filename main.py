@@ -13,10 +13,8 @@ TOKEN = os.getenv('TOKEN')
 WEATHER_KEY = os.getenv('WEATHER_KEY')
 BASE_WEATHER_URL = os.getenv('BASE_WEATHER_URL')
 
-# def discord_box(args) {
-#   data = args
-#   return f'```{data}```'
-# }
+def box(args): 
+  return f'```{args}```'
 
 @bot.event
 async def on_ready():
@@ -46,7 +44,7 @@ async def on_member_join(member):
 
 @bot.command(name='ping')
 async def ping(ctx):
-  await ctx.send((f'```Ping! {bot.latency * 1000} ms```'))
+  await ctx.send((box(f'Ping! {bot.latency * 1000} ms')))
 
 @bot.command(name='weather')
 async def weather(ctx, arg1):
